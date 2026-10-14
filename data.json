@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-13T11:20:31Z",
+  "generatedAt": "2026-10-14T12:27:25Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -466,7 +466,39 @@
       "startDate": "2026-10-15",
       "startTime": "07:30",
       "status": "confirme",
-      "title": "LC028 RDV entretiens",
+      "title": "LC028 RDV entretiens vr expert",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "2o3parjhkkty24nziz7p",
+      "allDay": false,
+      "endDate": "2026-10-15",
+      "endTime": "16:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "vr expert",
+      "routeTo": "boulevard Vachon",
+      "startDate": "2026-10-15",
+      "startTime": "15:00",
+      "status": "confirme",
+      "title": "LC028 aller porter le Véhicule en Beauce",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "6qzdx9ym0lg8t507587o",
+      "allDay": false,
+      "endDate": "2026-10-16",
+      "endTime": "09:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "",
+      "routeTo": "",
+      "startDate": "2026-10-16",
+      "startTime": "08:00",
+      "status": "confirme",
+      "title": "LC034 RDV exhaust vr expert",
       "type": "production",
       "unit": ""
     },
