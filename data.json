@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-16T11:10:27Z",
+  "generatedAt": "2026-10-18T15:35:08Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -563,6 +563,54 @@
       "startTime": "07:00",
       "status": "provisoire",
       "title": "Aller chercher LC028 en Beauce",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "g0pt9rw18zkmuqhqz8vl",
+      "allDay": false,
+      "endDate": "2026-10-22",
+      "endTime": "17:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "",
+      "routeTo": "",
+      "startDate": "2026-10-22",
+      "startTime": "08:00",
+      "status": "provisoire",
+      "title": "RDV exhaust LC042",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "1mjwnollyddg83w1gmve",
+      "allDay": false,
+      "endDate": "2026-10-23",
+      "endTime": "09:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "",
+      "routeTo": "",
+      "startDate": "2026-10-23",
+      "startTime": "08:00",
+      "status": "provisoire",
+      "title": "Aller porter LC028 chez le client",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "gtslig6wkmn6inqzg9sx",
+      "allDay": false,
+      "endDate": "2026-10-23",
+      "endTime": "10:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "",
+      "routeTo": "",
+      "startDate": "2026-10-23",
+      "startTime": "09:00",
+      "status": "provisoire",
+      "title": "Switch chez Chabot. LC033 - LC040",
       "type": "production",
       "unit": ""
     },
