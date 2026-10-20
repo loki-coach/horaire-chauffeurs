@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-18T15:35:08Z",
+  "generatedAt": "2026-10-20T11:09:40Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -452,7 +452,7 @@
       "status": "confirme",
       "title": "LC028 RDV alignement Desharnais centre du poids Lourd",
       "type": "production",
-      "unit": "LC028"
+      "unit": ""
     },
     {
       "id": "0xgf2h6gt8m5zo3t8s5v",
@@ -535,6 +535,22 @@
       "unit": ""
     },
     {
+      "id": "34ykn9ypsmqibrcizcex",
+      "allDay": false,
+      "endDate": "2026-10-20",
+      "endTime": "10:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "Prevost st nicolas",
+      "routeTo": "Usine Loki",
+      "startDate": "2026-10-20",
+      "startTime": "08:00",
+      "status": "provisoire",
+      "title": "Aller chercher LC024 chez prevost st nicolas",
+      "type": "production",
+      "unit": ""
+    },
+    {
       "id": "5fg60p23dz2stn9s5gu1",
       "allDay": false,
       "endDate": "2026-10-20",
@@ -611,6 +627,22 @@
       "startTime": "09:00",
       "status": "provisoire",
       "title": "Switch chez Chabot. LC033 - LC040",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "qkxi9twunp2ueu7mphrv",
+      "allDay": false,
+      "endDate": "2026-10-23",
+      "endTime": "13:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "Vr expert",
+      "routeTo": "usine loki",
+      "startDate": "2026-10-23",
+      "startTime": "12:00",
+      "status": "provisoire",
+      "title": "Aller chercher LC042 chez Vr expert",
       "type": "production",
       "unit": ""
     },
