@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-20T11:09:40Z",
+  "generatedAt": "2026-10-22T11:11:01Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -452,7 +452,7 @@
       "status": "confirme",
       "title": "LC028 RDV alignement Desharnais centre du poids Lourd",
       "type": "production",
-      "unit": ""
+      "unit": "LC028"
     },
     {
       "id": "0xgf2h6gt8m5zo3t8s5v",
