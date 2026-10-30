@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-29T11:16:44Z",
+  "generatedAt": "2026-10-30T12:56:18Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -343,22 +343,6 @@
       "unit": ""
     },
     {
-      "id": "4hdx78n51689ai6j9y2g",
-      "allDay": false,
-      "endDate": "2026-10-07",
-      "endTime": "16:00",
-      "location": "",
-      "notes": "",
-      "routeFrom": "usine loki",
-      "routeTo": "Vr expert",
-      "startDate": "2026-10-07",
-      "startTime": "15:00",
-      "status": "confirme",
-      "title": "LC016 RDV entretien VR expert",
-      "type": "production",
-      "unit": "LC016"
-    },
-    {
       "id": "ebexvcz987we3qst7nx8",
       "allDay": false,
       "endDate": "2026-10-07",
@@ -389,6 +373,22 @@
       "title": "LC028 - Aller chez le Lettrage ES avec le client du LC028",
       "type": "production",
       "unit": "LC028"
+    },
+    {
+      "id": "4hdx78n51689ai6j9y2g",
+      "allDay": false,
+      "endDate": "2026-10-07",
+      "endTime": "16:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine loki",
+      "routeTo": "Vr expert",
+      "startDate": "2026-10-07",
+      "startTime": "15:00",
+      "status": "confirme",
+      "title": "LC016 RDV entretien VR expert",
+      "type": "production",
+      "unit": "LC016"
     },
     {
       "id": "78z8lvn2optcank51he1",
@@ -423,22 +423,6 @@
       "unit": "LC036"
     },
     {
-      "id": "77mpgc7qv1gvij86n1no",
-      "allDay": false,
-      "endDate": "2026-10-14",
-      "endTime": "10:00",
-      "location": "",
-      "notes": "",
-      "routeFrom": "usine Loki",
-      "routeTo": "chabot",
-      "startDate": "2026-10-14",
-      "startTime": "08:00",
-      "status": "confirme",
-      "title": "LC027 aller le porter Chez Chabot",
-      "type": "production",
-      "unit": "LC027"
-    },
-    {
       "id": "ssrwgocmwf4tse4hoznx",
       "allDay": false,
       "endDate": "2026-10-14",
@@ -453,6 +437,22 @@
       "title": "LC028 RDV alignement Desharnais centre du poids Lourd",
       "type": "production",
       "unit": "LC028"
+    },
+    {
+      "id": "77mpgc7qv1gvij86n1no",
+      "allDay": false,
+      "endDate": "2026-10-14",
+      "endTime": "10:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine Loki",
+      "routeTo": "chabot",
+      "startDate": "2026-10-14",
+      "startTime": "08:00",
+      "status": "confirme",
+      "title": "LC027 aller le porter Chez Chabot",
+      "type": "production",
+      "unit": "LC027"
     },
     {
       "id": "0xgf2h6gt8m5zo3t8s5v",
