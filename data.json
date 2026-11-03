@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-10-30T12:56:18Z",
+  "generatedAt": "2026-11-03T12:09:07Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -343,6 +343,22 @@
       "unit": ""
     },
     {
+      "id": "4hdx78n51689ai6j9y2g",
+      "allDay": false,
+      "endDate": "2026-10-07",
+      "endTime": "16:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine loki",
+      "routeTo": "Vr expert",
+      "startDate": "2026-10-07",
+      "startTime": "15:00",
+      "status": "confirme",
+      "title": "LC016 RDV entretien VR expert",
+      "type": "production",
+      "unit": "LC016"
+    },
+    {
       "id": "ebexvcz987we3qst7nx8",
       "allDay": false,
       "endDate": "2026-10-07",
@@ -373,22 +389,6 @@
       "title": "LC028 - Aller chez le Lettrage ES avec le client du LC028",
       "type": "production",
       "unit": "LC028"
-    },
-    {
-      "id": "4hdx78n51689ai6j9y2g",
-      "allDay": false,
-      "endDate": "2026-10-07",
-      "endTime": "16:00",
-      "location": "",
-      "notes": "",
-      "routeFrom": "usine loki",
-      "routeTo": "Vr expert",
-      "startDate": "2026-10-07",
-      "startTime": "15:00",
-      "status": "confirme",
-      "title": "LC016 RDV entretien VR expert",
-      "type": "production",
-      "unit": "LC016"
     },
     {
       "id": "78z8lvn2optcank51he1",
@@ -423,22 +423,6 @@
       "unit": "LC036"
     },
     {
-      "id": "ssrwgocmwf4tse4hoznx",
-      "allDay": false,
-      "endDate": "2026-10-14",
-      "endTime": "08:00",
-      "location": "",
-      "notes": "",
-      "routeFrom": "Usine Loki",
-      "routeTo": "Desharnais centre du poids lourd",
-      "startDate": "2026-10-14",
-      "startTime": "07:00",
-      "status": "confirme",
-      "title": "LC028 RDV alignement Desharnais centre du poids Lourd",
-      "type": "production",
-      "unit": "LC028"
-    },
-    {
       "id": "77mpgc7qv1gvij86n1no",
       "allDay": false,
       "endDate": "2026-10-14",
@@ -453,6 +437,22 @@
       "title": "LC027 aller le porter Chez Chabot",
       "type": "production",
       "unit": "LC027"
+    },
+    {
+      "id": "ssrwgocmwf4tse4hoznx",
+      "allDay": false,
+      "endDate": "2026-10-14",
+      "endTime": "08:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "Usine Loki",
+      "routeTo": "Desharnais centre du poids lourd",
+      "startDate": "2026-10-14",
+      "startTime": "07:00",
+      "status": "confirme",
+      "title": "LC028 RDV alignement Desharnais centre du poids Lourd",
+      "type": "production",
+      "unit": "LC028"
     },
     {
       "id": "0xgf2h6gt8m5zo3t8s5v",
@@ -661,6 +661,54 @@
       "title": "Évènement  + Livraison chez TMCS LC032",
       "type": "marketing",
       "unit": "LC032"
+    },
+    {
+      "id": "eksw7w5hm2heydwqj1pa",
+      "allDay": false,
+      "endDate": "2026-11-05",
+      "endTime": "13:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine loki",
+      "routeTo": "vr expert",
+      "startDate": "2026-11-05",
+      "startTime": "12:00",
+      "status": "provisoire",
+      "title": "Amener LC035 chez Vr expert",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "9zmpihl8jrgy5n5m3emx",
+      "allDay": false,
+      "endDate": "2026-11-06",
+      "endTime": "13:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "Vr expert",
+      "routeTo": "usine loki",
+      "startDate": "2026-11-06",
+      "startTime": "12:00",
+      "status": "provisoire",
+      "title": "aller chercher LC035 chez Vr expert",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "d70ym4c4t0xed55wl30p",
+      "allDay": false,
+      "endDate": "2026-11-09",
+      "endTime": "17:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "Usine loki",
+      "routeTo": "Vr expert",
+      "startDate": "2026-11-09",
+      "startTime": "08:00",
+      "status": "provisoire",
+      "title": "RDV entretiens Génératrice/ oasis LC015",
+      "type": "production",
+      "unit": ""
     }
   ]
 }
