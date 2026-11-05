@@ -94,28 +94,65 @@
   .wd-event.status-annule { border-left-color: var(--cancel); opacity: 0.6; text-decoration: line-through; }
   .wd-empty { font-size: 0.78rem; color: var(--muted); padding: 2px 0; }
 
-  .month-grid {
-    display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; max-width: 100%;
+  .month-cal { border-top: 1px solid var(--border); }
+  .cal-dow {
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-left: 1px solid var(--border);
   }
-  .month-dow {
+  .cal-dow div {
     font-size: 0.7rem; text-transform: uppercase; color: var(--muted); text-align: center;
-    padding-bottom: 4px; font-weight: 600;
+    padding: 4px 0; font-weight: 600; border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); background: var(--card);
   }
-  .month-cell {
-    background: var(--card); border: 1px solid var(--border); border-radius: 6px;
-    min-height: 64px; padding: 4px; font-size: 0.72rem; min-width: 0; overflow: hidden;
+  .cal-week { position: relative; min-height: 84px; border-left: 1px solid var(--border); }
+  .cal-bg {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
   }
-  .month-cell.outside { opacity: 0.35; }
-  .month-cell.is-today { border-color: var(--navy); border-width: 2px; }
-  .month-cell .mc-num { font-weight: 600; margin-bottom: 2px; }
-  .mc-chip {
-    display: block; background: var(--bg); border-left: 2px solid var(--ok); border-radius: 3px;
-    padding: 1px 4px; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis;
-    white-space: nowrap;
+  .cal-cell {
+    background: var(--card); border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); cursor: pointer;
   }
-  .mc-chip.status-provisoire { border-left-color: var(--prov); }
-  .mc-chip.status-annule { border-left-color: var(--cancel); opacity: 0.6; }
-  .mc-more { color: var(--muted); font-size: 0.68rem; }
+  .cal-cell.outside { background: #f3f1ea; }
+  .cal-cell.is-today { box-shadow: inset 0 0 0 2px var(--navy); }
+  .cal-cell.is-selected { background: #eaf3f7; }
+  .cal-fg {
+    position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-auto-rows: auto; align-content: start; padding-bottom: 4px;
+    min-height: 84px; pointer-events: none;
+  }
+  .cal-num { font-size: 0.75rem; font-weight: 600; padding: 3px 5px 2px; min-width: 0; }
+  .cal-num.outside { color: var(--muted); font-weight: 400; }
+  .cal-num.today { color: var(--navy); }
+  .cal-bar {
+    pointer-events: auto; cursor: pointer; min-width: 0; margin: 1px 2px; padding: 1px 5px;
+    font-size: 0.7rem; line-height: 1.4; border-radius: 4px; background: #dcebe2;
+    border-left: 3px solid var(--ok); white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cal-bar.status-provisoire { background: #f7efd6; border-left-color: var(--prov); }
+  .cal-bar.status-annule {
+    background: #eceff1; border-left-color: var(--cancel); color: var(--muted);
+    text-decoration: line-through;
+  }
+  .cal-bar.cont-left { margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+  .cal-bar.cont-right { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+  .month-detail { margin-top: 14px; }
+  .month-detail h3 {
+    font-size: 0.9rem; margin: 0 0 8px; color: var(--navy);
+  }
+  .month-detail h3::first-letter { text-transform: uppercase; }
+  @media (max-width: 559px) { .cal-t { display: none; } }
+  .md-item {
+    background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--ok);
+    border-radius: 6px; padding: 8px 12px; margin-bottom: 6px; font-size: 0.85rem;
+  }
+  .md-item.status-provisoire { border-left-color: var(--prov); }
+  .md-item.status-annule { border-left-color: var(--cancel); opacity: 0.6; }
+  .md-item.status-annule .md-title { text-decoration: line-through; }
+  .md-title { font-weight: 600; }
+  .md-meta { font-size: 0.78rem; color: var(--muted); }
+  .md-empty { font-size: 0.8rem; color: var(--muted); }
 
   footer {
     max-width: 720px; margin: 20px auto 0; padding: 12px 16px 0; border-top: 1px solid var(--border);
@@ -141,17 +178,25 @@
   </div>
 
   <div id="view-agenda" class="view active">
-<div class="day-group">
-<h2>jeudi 5 novembre 2026</h2>
-<div class="assignment status-provisoire"><div class="a-time">12:00 – 13:00</div><div class="a-body"><div class="a-title">Amener LC035 chez Vr expert</div><div class="a-meta">Production · Provisoire</div><div class="route">usine loki → vr expert</div></div></div>
+<div class="day-group is-today">
+<h2>jeudi 5 novembre 2026 <span class="today-tag">Aujourd'hui</span></h2>
+<div class="assignment status-confirme"><div class="a-time">12:00 – 13:00</div><div class="a-body"><div class="a-title">Amener LC035 chez Vr expert</div><div class="a-meta">Production · Confirmé</div><div class="route">usine loki → vr expert</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">15:30 – 16:00</div><div class="a-body"><div class="a-title">aller porter LC015 a st nicolas</div><div class="a-meta">Production · Confirmé</div><div class="route">usine loki → prevost st nicolas</div></div></div>
 </div>
 <div class="day-group">
 <h2>vendredi 6 novembre 2026</h2>
-<div class="assignment status-provisoire"><div class="a-time">12:00 – 13:00</div><div class="a-body"><div class="a-title">aller chercher LC035 chez Vr expert</div><div class="a-meta">Production · Provisoire</div><div class="route">Vr expert → usine loki</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">06:00 – 07:00</div><div class="a-body"><div class="a-title">ramasser LC015</div><div class="a-meta">Production · Confirmé</div><div class="route">prevost st nicolas → usine loki</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">07:00 – 08:00</div><div class="a-body"><div class="a-title">faire une switch chez chabt (Partir avec LC044 et ramener LC024)</div><div class="a-meta">Production · Confirmé</div><div class="route">usine loki → chabot</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">12:00 – 13:00</div><div class="a-body"><div class="a-title">aller chercher LC035 chez Vr expert</div><div class="a-meta">Production · Confirmé</div><div class="route">Vr expert → usine loki</div></div></div>
 </div>
 <div class="day-group">
 <h2>lundi 9 novembre 2026</h2>
-<div class="assignment status-provisoire"><div class="a-time">08:00 – 17:00</div><div class="a-body"><div class="a-title">RDV entretiens Génératrice/ oasis LC015</div><div class="a-meta">Production · Provisoire</div><div class="route">Usine loki → Vr expert</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">06:00 – 07:00</div><div class="a-body"><div class="a-title">RDV entretiens Génératrice/ oasis LC015</div><div class="a-meta">Production · Confirmé</div><div class="route">Usine loki → Vr expert</div></div></div>
+<div class="assignment status-confirme"><div class="a-time">15:00 – 15:30</div><div class="a-body"><div class="a-title">faire switch LC015 et lc020 chez vr expert</div><div class="a-meta">Production · Confirmé</div></div></div>
+</div>
+<div class="day-group">
+<h2>jeudi 12 novembre 2026</h2>
+<div class="assignment status-confirme"><div class="a-time">12:00 – 13:00</div><div class="a-body"><div class="a-title">RDV vr expert pour exhaust ( véhicule à déterminer)</div><div class="a-meta">Production · Confirmé</div><div class="route">usine loki → vr expert</div></div></div>
 </div>
   </div>
 
@@ -176,17 +221,18 @@
       </div>
       <div class="nav-label" id="month-label"></div>
     </div>
-    <div class="month-grid" id="month-grid"></div>
+    <div class="month-cal" id="month-grid"></div>
+    <div class="month-detail" id="month-detail"></div>
   </div>
 </main>
 <footer>
-  Généré automatiquement depuis Feuille de Route — dernière mise à jour : 2026-11-03 07:09 (heure de Québec).<br>
+  Généré automatiquement depuis Feuille de Route — dernière mise à jour : 2026-11-05 07:09 (heure de Québec).<br>
   Pour toute modification, contacte Martin Goizioux ou Maxime Boulianne.
 </footer>
 <script>
 (function() {
-  var DATA = [{"startDate": "2026-11-05", "endDate": "2026-11-05", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "Amener LC035 chez Vr expert", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-06", "endDate": "2026-11-06", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "aller chercher LC035 chez Vr expert", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-09", "endDate": "2026-11-09", "startTime": "08:00", "endTime": "17:00", "allDay": false, "title": "RDV entretiens Génératrice/ oasis LC015", "status": "provisoire", "type": "production", "location": "", "unit": ""}];
-  var TODAY_STR = "2026-11-03";
+  var DATA = [{"startDate": "2026-10-01", "endDate": "2026-10-01", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "RDV exhaust LC036", "status": "confirme", "type": "production", "location": "usine loki", "unit": "LC036"}, {"startDate": "2026-10-02", "endDate": "2026-10-02", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "aller chercher LC036 Vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-05", "endDate": "2026-10-05", "startTime": "12:30", "endTime": "13:00", "allDay": false, "title": "LC028 RDV Prevost Entretiens", "status": "confirme", "type": "production", "location": "", "unit": "LC028"}, {"startDate": "2026-10-06", "endDate": "2026-10-06", "startTime": "10:00", "endTime": "12:00", "allDay": false, "title": "Switch chez chabot Départ avec LC040 et retour avec LC042", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-07", "endDate": "2026-10-07", "startTime": "07:00", "endTime": "08:00", "allDay": false, "title": "LC031 RDV prevost st nicolas", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-07", "endDate": "2026-10-07", "startTime": "08:00", "endTime": "10:00", "allDay": false, "title": "LC028 - Aller chez le Lettrage ES avec le client du LC028", "status": "confirme", "type": "production", "location": "", "unit": "LC028"}, {"startDate": "2026-10-07", "endDate": "2026-10-07", "startTime": "15:00", "endTime": "16:00", "allDay": false, "title": "LC016 RDV entretien VR expert", "status": "confirme", "type": "production", "location": "", "unit": "LC016"}, {"startDate": "2026-10-08", "endDate": "2026-10-08", "startTime": "08:00", "endTime": "17:00", "allDay": true, "title": "Contenu LC031 avec L'équipe de Marie-Pierre", "status": "confirme", "type": "marketing", "location": "", "unit": ""}, {"startDate": "2026-10-09", "endDate": "2026-10-09", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "Aller Chercher LC036 chez Vr expert", "status": "confirme", "type": "production", "location": "", "unit": "LC036"}, {"startDate": "2026-10-14", "endDate": "2026-10-14", "startTime": "07:00", "endTime": "08:00", "allDay": false, "title": "LC028 RDV alignement Desharnais centre du poids Lourd", "status": "confirme", "type": "production", "location": "", "unit": "LC028"}, {"startDate": "2026-10-14", "endDate": "2026-10-14", "startTime": "08:00", "endTime": "10:00", "allDay": false, "title": "LC027 aller le porter Chez Chabot", "status": "confirme", "type": "production", "location": "", "unit": "LC027"}, {"startDate": "2026-10-15", "endDate": "2026-10-15", "startTime": "07:30", "endTime": "08:30", "allDay": false, "title": "LC028 RDV entretiens vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-15", "endDate": "2026-10-15", "startTime": "15:00", "endTime": "16:00", "allDay": false, "title": "LC028 aller porter le Véhicule en Beauce", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-16", "endDate": "2026-10-16", "startTime": "11:30", "endTime": "12:00", "allDay": false, "title": "LC034 RDV exhaust vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-16", "endDate": "2026-10-16", "startTime": "12:00", "endTime": "15:00", "allDay": false, "title": "Aller porter Clara chez Vr expert", "status": "confirme", "type": "production", "location": "usine loki", "unit": "Clara"}, {"startDate": "2026-10-19", "endDate": "2026-10-19", "startTime": "06:30", "endTime": "07:30", "allDay": false, "title": "aller chercher LC034 chez vr expert", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-20", "endDate": "2026-10-20", "startTime": "08:00", "endTime": "10:00", "allDay": false, "title": "Aller chercher LC024 chez prevost st nicolas", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-20", "endDate": "2026-10-20", "startTime": "13:00", "endTime": "15:00", "allDay": false, "title": "LC027 aller le récupérer (chabot)", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-21", "endDate": "2026-10-21", "startTime": "07:00", "endTime": "09:00", "allDay": false, "title": "Aller chercher LC028 en Beauce", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-22", "endDate": "2026-10-22", "startTime": "08:00", "endTime": "17:00", "allDay": false, "title": "RDV exhaust LC042", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-23", "endDate": "2026-10-23", "startTime": "08:00", "endTime": "09:00", "allDay": false, "title": "Aller porter LC028 chez le client", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-23", "endDate": "2026-10-23", "startTime": "09:00", "endTime": "10:00", "allDay": false, "title": "Switch chez Chabot. LC033 - LC040", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-23", "endDate": "2026-10-23", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "Aller chercher LC042 chez Vr expert", "status": "provisoire", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-10-25", "endDate": "2026-10-31", "startTime": "08:00", "endTime": "17:00", "allDay": false, "title": "Évènement  + Livraison chez TMCS LC032", "status": "confirme", "type": "marketing", "location": "", "unit": "LC032"}, {"startDate": "2026-11-05", "endDate": "2026-11-05", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "Amener LC035 chez Vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-05", "endDate": "2026-11-05", "startTime": "15:30", "endTime": "16:00", "allDay": false, "title": "aller porter LC015 a st nicolas", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-06", "endDate": "2026-11-06", "startTime": "06:00", "endTime": "07:00", "allDay": false, "title": "ramasser LC015", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-06", "endDate": "2026-11-06", "startTime": "07:00", "endTime": "08:00", "allDay": false, "title": "faire une switch chez chabt (Partir avec LC044 et ramener LC024)", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-06", "endDate": "2026-11-06", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "aller chercher LC035 chez Vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-09", "endDate": "2026-11-09", "startTime": "06:00", "endTime": "07:00", "allDay": false, "title": "RDV entretiens Génératrice/ oasis LC015", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-09", "endDate": "2026-11-09", "startTime": "15:00", "endTime": "15:30", "allDay": false, "title": "faire switch LC015 et lc020 chez vr expert", "status": "confirme", "type": "production", "location": "", "unit": ""}, {"startDate": "2026-11-12", "endDate": "2026-11-12", "startTime": "12:00", "endTime": "13:00", "allDay": false, "title": "RDV vr expert pour exhaust ( véhicule à déterminer)", "status": "confirme", "type": "production", "location": "", "unit": ""}];
+  var TODAY_STR = "2026-11-05";
   var JOURS_COURT = ["lun","mar","mer","jeu","ven","sam","dim"];
   var MOIS = ["janvier","février","mars","avril","mai","juin","juillet",
               "août","septembre","octobre","novembre","décembre"];
@@ -273,56 +319,165 @@
   document.getElementById("week-today").addEventListener("click", function() { weekOffset = 0; renderWeek(); });
 
   var monthOffset = 0;
+  var selectedDay = TODAY_STR;
+  var JOURS_LONG = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+  var MOIS_COURT = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+  var STATUS_FR = {"confirme": "Confirmé", "provisoire": "Provisoire", "annule": "Annulé"};
+
+  function dayDiff(a, b) {
+    return Math.round((Date.UTC(b.getFullYear(), b.getMonth(), b.getDate()) -
+                       Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())) / 86400000);
+  }
+  function selectDay(dStr) {
+    selectedDay = dStr;
+    renderMonth();
+  }
+  function renderDetail() {
+    var box = document.getElementById("month-detail");
+    box.innerHTML = "";
+    if (!selectedDay) return;
+    var d = parseISO(selectedDay);
+    var h = document.createElement("h3");
+    h.textContent = JOURS_LONG[d.getDay()] + " " + d.getDate() + " " + MOIS[d.getMonth()] + " " + d.getFullYear();
+    box.appendChild(h);
+    var evs = DATA.filter(function(a) { return activeOn(a, selectedDay); });
+    if (evs.length === 0) {
+      var empty = document.createElement("div");
+      empty.className = "md-empty";
+      empty.textContent = "Aucune affectation ce jour-là.";
+      box.appendChild(empty);
+      return;
+    }
+    evs.forEach(function(a) {
+      var item = document.createElement("div");
+      item.className = "md-item status-" + a.status;
+      var t = document.createElement("div");
+      t.className = "md-title";
+      t.textContent = a.title;
+      item.appendChild(t);
+      var parts = [];
+      var end = a.endDate || a.startDate;
+      if (end !== a.startDate) {
+        var s = parseISO(a.startDate), e = parseISO(end);
+        parts.push("Du " + s.getDate() + " " + MOIS_COURT[s.getMonth()] + " au " + e.getDate() + " " + MOIS_COURT[e.getMonth()]);
+      }
+      parts.push(a.allDay ? "Toute la journée" : (a.startTime || "") + (a.endTime ? " – " + a.endTime : ""));
+      if (a.location) parts.push(a.location);
+      if (a.unit) parts.push(a.unit);
+      parts.push(STATUS_FR[a.status] || a.status);
+      var m = document.createElement("div");
+      m.className = "md-meta";
+      m.textContent = parts.filter(function(p) { return p; }).join(" · ");
+      item.appendChild(m);
+      box.appendChild(item);
+    });
+  }
+
   function renderMonth() {
     var base = new Date(TODAY.getFullYear(), TODAY.getMonth() + monthOffset, 1);
     var year = base.getFullYear(), month = base.getMonth();
     document.getElementById("month-label").textContent = MOIS[month] + " " + year;
 
-    var grid = document.getElementById("month-grid");
-    grid.innerHTML = "";
+    var cal = document.getElementById("month-grid");
+    cal.innerHTML = "";
+    var head = document.createElement("div");
+    head.className = "cal-dow";
     JOURS_COURT.forEach(function(j) {
-      var dow = document.createElement("div");
-      dow.className = "month-dow";
-      dow.textContent = j;
-      grid.appendChild(dow);
+      var s = document.createElement("div");
+      s.textContent = j;
+      head.appendChild(s);
     });
+    cal.appendChild(head);
 
-    var firstOfMonth = new Date(year, month, 1);
-    var startOffset = (firstOfMonth.getDay() === 0 ? 6 : firstOfMonth.getDay() - 1);
-    var gridStart = new Date(firstOfMonth);
-    gridStart.setDate(1 - startOffset);
+    var startOffset = (base.getDay() === 0 ? 6 : base.getDay() - 1);
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var weeks = Math.ceil((startOffset + daysInMonth) / 7);
+    var gridStart = new Date(year, month, 1 - startOffset);
 
-    for (var i = 0; i < 42; i++) {
-      var d = new Date(gridStart);
-      d.setDate(gridStart.getDate() + i);
-      if (i >= 35 && d.getMonth() !== month) break;
-      var dStr = iso(d);
-      var cell = document.createElement("div");
-      var cls = "month-cell";
-      if (d.getMonth() !== month) cls += " outside";
-      if (dStr === TODAY_STR) cls += " is-today";
-      cell.className = cls;
-      var num = document.createElement("div");
-      num.className = "mc-num";
-      num.textContent = d.getDate();
-      cell.appendChild(num);
-      var dayEvents = DATA.filter(function(a) { return activeOn(a, dStr); });
-      var shown = dayEvents.slice(0, 2);
-      shown.forEach(function(a) {
-        var chip = document.createElement("span");
-        chip.className = "mc-chip status-" + a.status;
-        chip.textContent = a.title;
-        chip.title = eventLabel(a) + " — " + a.title;
-        cell.appendChild(chip);
-      });
-      if (dayEvents.length > shown.length) {
-        var more = document.createElement("div");
-        more.className = "mc-more";
-        more.textContent = "+" + (dayEvents.length - shown.length);
-        cell.appendChild(more);
+    for (var w = 0; w < weeks; w++) {
+      var ws = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + w * 7);
+      var we = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() + 6);
+      var wsStr = iso(ws), weStr = iso(we);
+      var row = document.createElement("div");
+      row.className = "cal-week";
+      var bg = document.createElement("div");
+      bg.className = "cal-bg";
+      var fg = document.createElement("div");
+      fg.className = "cal-fg";
+      var days = [];
+
+      for (var i = 0; i < 7; i++) {
+        var d = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() + i);
+        var dStr = iso(d);
+        days.push(dStr);
+        var outside = d.getMonth() !== month;
+        var cell = document.createElement("div");
+        cell.className = "cal-cell" + (outside ? " outside" : "") +
+          (dStr === TODAY_STR ? " is-today" : "") + (dStr === selectedDay ? " is-selected" : "");
+        (function(ds) {
+          cell.addEventListener("click", function() { selectDay(ds); });
+        })(dStr);
+        bg.appendChild(cell);
+        var num = document.createElement("div");
+        num.className = "cal-num" + (outside ? " outside" : "") + (dStr === TODAY_STR ? " today" : "");
+        num.textContent = d.getDate() + (d.getDate() === 1 ? " " + MOIS_COURT[d.getMonth()] : "");
+        num.style.gridColumn = String(i + 1);
+        num.style.gridRow = "1";
+        fg.appendChild(num);
       }
-      grid.appendChild(cell);
+
+      var segs = [];
+      DATA.forEach(function(a) {
+        var s = a.startDate, e = a.endDate || a.startDate;
+        if (e < s) e = s;
+        if (e < wsStr || s > weStr) return;
+        var cs = s < wsStr ? wsStr : s;
+        var ce = e > weStr ? weStr : e;
+        segs.push({
+          a: a,
+          col: dayDiff(ws, parseISO(cs)),
+          end: dayDiff(ws, parseISO(ce)),
+          left: s < wsStr,
+          right: e > weStr
+        });
+      });
+      segs.sort(function(x, y) {
+        return (x.col - y.col) || ((y.end - y.col) - (x.end - x.col)) ||
+               (x.a.startTime || "").localeCompare(y.a.startTime || "");
+      });
+      var lanes = [];
+      segs.forEach(function(sg) {
+        var lane = 0;
+        while (lanes[lane] !== undefined && lanes[lane] >= sg.col) lane++;
+        lanes[lane] = sg.end;
+        sg.lane = lane;
+      });
+
+      segs.forEach(function(sg) {
+        var a = sg.a;
+        var single = a.startDate === (a.endDate || a.startDate);
+        var bar = document.createElement("div");
+        bar.className = "cal-bar status-" + a.status + (sg.left ? " cont-left" : "") + (sg.right ? " cont-right" : "");
+        bar.style.gridColumn = (sg.col + 1) + " / " + (sg.end + 2);
+        bar.style.gridRow = String(sg.lane + 2);
+        if (single && !a.allDay && a.startTime) {
+          var tm = document.createElement("span");
+          tm.className = "cal-t";
+          tm.textContent = a.startTime + " ";
+          bar.appendChild(tm);
+        }
+        bar.appendChild(document.createTextNode(a.title));
+        bar.title = eventLabel(a) + " — " + a.title;
+        var target = days[sg.col];
+        bar.addEventListener("click", function() { selectDay(target); });
+        fg.appendChild(bar);
+      });
+
+      row.appendChild(bg);
+      row.appendChild(fg);
+      cal.appendChild(row);
     }
+    renderDetail();
   }
   document.getElementById("month-prev").addEventListener("click", function() { monthOffset--; renderMonth(); });
   document.getElementById("month-next").addEventListener("click", function() { monthOffset++; renderMonth(); });
