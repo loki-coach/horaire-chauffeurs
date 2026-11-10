@@ -4,7 +4,7 @@
     "name": "Olivier Landry",
     "role": "Temps plein"
   },
-  "generatedAt": "2026-11-06T13:28:11Z",
+  "generatedAt": "2026-11-10T12:09:30Z",
   "assignments": [
     {
       "id": "seed-01",
@@ -771,6 +771,38 @@
       "startTime": "15:00",
       "status": "confirme",
       "title": "faire switch LC015 et lc020 chez vr expert",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "1rhjd1w6pnhceg1lkkm9",
+      "allDay": false,
+      "endDate": "2026-11-11",
+      "endTime": "15:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine loki",
+      "routeTo": "Prevost st nicolas",
+      "startDate": "2026-11-11",
+      "startTime": "14:00",
+      "status": "confirme",
+      "title": "LC020",
+      "type": "production",
+      "unit": ""
+    },
+    {
+      "id": "h0f8nq93bnuquep990mz",
+      "allDay": false,
+      "endDate": "2026-11-12",
+      "endTime": "16:00",
+      "location": "",
+      "notes": "",
+      "routeFrom": "usine loki",
+      "routeTo": "prevost st nicolas",
+      "startDate": "2026-11-12",
+      "startTime": "15:00",
+      "status": "confirme",
+      "title": "Clara rdv Prevost",
       "type": "production",
       "unit": ""
     },
